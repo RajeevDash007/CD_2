@@ -10,24 +10,24 @@
   <div class="container">
    
     <div class="buttons">
-        <button data-key="a" onclick="addToSequence('Sa')">Sa(A)</button>
-        <button data-key="w" onclick="addToSequence('KomalRe')">re(W)</button>
-        <button data-key="s" onclick="addToSequence('Re')">RE(S)</button>
-        <button data-key="e" onclick="addToSequence('KomalGa')">ga(E)</button>
-        <button data-key="d" onclick="addToSequence('Ga')">GA(D)</button>
-        <button data-key="f" onclick="addToSequence('Ma')">MA(F)</button>
-        <button data-key="r" onclick="addToSequence('TivraMa')">ma(R)</button>
-        <button data-key="g" onclick="addToSequence('Pa')">PA(G)</button>
-        <button data-key="y" onclick="addToSequence('KomalDha')">dha(Y)</button>
-        <button data-key="h" onclick="addToSequence('Dha')">DHA(H)</button>
-        <button data-key="u" onclick="addToSequence('KomalNi')">ni(U)</button>
-        <button data-key="j" onclick="addToSequence('Ni')">NI(J)</button>
+        <button data-key="a" onclick="addToSequence('Sa')" class="whiteKey">Sa(A)</button>
+        <button data-key="w" onclick="addToSequence('KomalRe')" class="blackKey">re(W)</button>
+        <button data-key="s" onclick="addToSequence('Re')" class="whiteKey">RE(S)</button>
+        <button data-key="e" onclick="addToSequence('KomalGa')" class="blackKey">ga(E)</button>
+        <button data-key="d" onclick="addToSequence('Ga')" class="whiteKey">GA(D)</button>
+        <button data-key="f" onclick="addToSequence('Ma')" class="whiteKey">MA(F)</button>
+        <button data-key="r" onclick="addToSequence('TivraMa')" class="blackKey">ma(R)</button>
+        <button data-key="g" onclick="addToSequence('Pa')" class="whiteKey">PA(G)</button>
+        <button data-key="y" onclick="addToSequence('KomalDha')" class="blackKey">dha(Y)</button>
+        <button data-key="h" onclick="addToSequence('Dha')" class="whiteKey">DHA(H)</button>
+        <button data-key="u" onclick="addToSequence('KomalNi')" class="blackKey">ni(U)</button>
+        <button data-key="j" onclick="addToSequence('Ni')" class="whiteKey">NI(J)</button>
     </div>
     <h4>Notes Sequence</h4>
     <div id="sequence-box"></div>
     <h4>Numbered Sequence</h4>
     <div id="numbered-sequence-box"></div>
-    <button onclick="reloadPage()">Clear All</button>
+    <button onclick="reloadPage()" class="clearBtn">Clear All</button>
   </div>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
