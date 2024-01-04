@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <title>Sangeet Buttons</title>
+</head>
+<body>
+  <div class="container">
+   
+    <div class="buttons">
+        <button data-key="a" onclick="addToSequence('Sa')">Sa(A)</button>
+        <button data-key="w" onclick="addToSequence('KomalRe')">re(W)</button>
+        <button data-key="s" onclick="addToSequence('Re')">RE(S)</button>
+        <button data-key="e" onclick="addToSequence('KomalGa')">ga(E)</button>
+        <button data-key="d" onclick="addToSequence('Ga')">GA(D)</button>
+        <button data-key="f" onclick="addToSequence('Ma')">MA(F)</button>
+        <button data-key="r" onclick="addToSequence('TivraMa')">ma(R)</button>
+        <button data-key="g" onclick="addToSequence('Pa')">PA(G)</button>
+        <button data-key="y" onclick="addToSequence('KomalDha')">dha(Y)</button>
+        <button data-key="h" onclick="addToSequence('Dha')">DHA(H)</button>
+        <button data-key="u" onclick="addToSequence('KomalNi')">ni(U)</button>
+        <button data-key="j" onclick="addToSequence('Ni')">NI(J)</button>
+    </div>
+    <h4>Notes Sequence</h4>
+    <div id="sequence-box"></div>
+    <h4>Numbered Sequence</h4>
+    <div id="numbered-sequence-box"></div>
+    <button onclick="reloadPage()">Clear All</button>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
