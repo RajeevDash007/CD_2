@@ -3,8 +3,9 @@ let sequence = '';
 function addToSequence(sur) {
   sequence += sur + ' ';
   document.getElementById('sequence-box').innerHTML = sequence;
+}
 
-  // Send the sequence to Python for numbering
+function matchSequence() {
   sendSequenceToPython(sequence);
 }
 
@@ -20,6 +21,7 @@ function sendSequenceToPython(sequence) {
   .then(data => {
     console.log('Received response from Python:', data);
     updateNumberedSequenceBox(data.numbered_sequence);
+    displayMatchResults(data.match_results);
   })
   .catch(error => {
     console.error('Error:', error);
@@ -31,6 +33,20 @@ function updateNumberedSequenceBox(numberedSequence) {
   numberedSequenceBox.innerHTML = numberedSequence;
 }
 
+function displayMatchResults(matchResults) {
+  const matchResultsBox = document.getElementById('match-results-box');
+  matchResultsBox.innerHTML = '<h4>Match Results</h4>';
+  
+  for (const raga in matchResults) {
+    const percentage = matchResults[raga];
+    const resultString = `${raga}: ${percentage}%`;
+    
+    const resultElement = document.createElement('p');
+    resultElement.textContent = resultString;
+    
+    matchResultsBox.appendChild(resultElement);
+  }
+}
 
 document.addEventListener('keydown', function(event) {
   const key = event.key.toLowerCase();
@@ -43,6 +59,4 @@ document.addEventListener('keydown', function(event) {
 
 function reloadPage() {
     location.reload();
-  }
-updateSequenceBox();
-
+}
