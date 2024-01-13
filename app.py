@@ -33,7 +33,16 @@ raga_sequences = {
         'abroha': 'Sa Ni KomalDha Pa Ma Ga KomalRe Sa',
         'pakad': 'KomalRe Ga Ma Pa, KomalDha Pa Ma Ga, Ma Ga KomalRe Ga, KomalRe Ga Ma Pa, KomalDha Ni Sa'
     },
-    
+    'Bhairavi': {
+        'aroha': 'Sa KomalRe KomalGa Ma Pa KomalDha KomalNi Sa',
+        'abroha': 'Sa KomalNi KomalDha Pa Ma KomalGa KomalRe Sa',
+        'pakad': 'KomalRe KomalGa Ma KomalDha, KomalNi KomalDha Pa KomalDha, KomalNi KomalDha Pa Ma, KomalGa KomalRe Sa'
+    },
+    'Kalyan': {
+        'aroha': 'Sa Re Ga TivraMa Pa Dha Ni Sa',
+        'abroha': 'Sa Ni Dha Pa TivraMa Ga Re Sa',
+        'pakad': 'Ga Ma Re Pa, TivraMa Pa Dha Ni, Dha Ni Sa Re, Ga TivraMa Re Sa'
+    }
 }
 
 def compare_sequences(input_sequence, raga_sequences):

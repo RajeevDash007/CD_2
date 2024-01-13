@@ -35,7 +35,6 @@ function updateNumberedSequenceBox(numberedSequence) {
 
 function displayMatchResults(matchResults) {
   const matchResultsBox = document.getElementById('match-results-box');
-  matchResultsBox.innerHTML = '<h4>Match Results</h4>';
   
   for (const raga in matchResults) {
     const percentage = matchResults[raga];
