@@ -35,16 +35,20 @@ function updateNumberedSequenceBox(numberedSequence) {
 
 function displayMatchResults(matchResults) {
   const matchResultsBox = document.getElementById('match-results-box');
-  
-  for (const raga in matchResults) {
-    const percentage = matchResults[raga];
-    const resultString = `${raga}: ${percentage}%`;
-    
+  const resultsArray = Object.entries(matchResults).map(([raga, percentage]) => ({ raga, percentage }));
+
+  resultsArray.sort((a, b) => b.percentage - a.percentage);
+
+  matchResultsBox.innerHTML = '';
+
+  resultsArray.forEach(result => {
+    const resultString = `${result.raga}: ${result.percentage}%`;
+
     const resultElement = document.createElement('p');
     resultElement.textContent = resultString;
-    
+
     matchResultsBox.appendChild(resultElement);
-  }
+  });
 }
 
 document.addEventListener('keydown', function(event) {
