@@ -23,6 +23,11 @@ raga_sequences = {
         'abroha': 'Sa Ni Dha Pa Ma Ga Re Sa',
         'pakad': 'Sa Re Ga Ma, Ga Ma Re Ga, Re Ga Ma Pa, Dha Pa Ma Ga, Re Sa'
     },
+    'Bhoopali': {
+        'aroha': 'Sa Re Ga Pa Dha Sa',
+        'abroha': 'Sa Dha Pa Ga Re Sa',
+        'pakad': 'Ga Re Pa Ga Sa Re Pa Ga'
+    },
     'Kafi': {
         'aroha': 'Sa Re KomalGa Ma Pa Dha KomalNi Sa',
         'abroha': 'Sa KomalNi Dha Pa Ma KomalGa Re Sa',
@@ -42,6 +47,11 @@ raga_sequences = {
         'aroha': 'Sa Re Ga TivraMa Pa Dha Ni Sa',
         'abroha': 'Sa Ni Dha Pa TivraMa Ga Re Sa',
         'pakad': 'Ga Ma Re Pa, TivraMa Pa Dha Ni, Dha Ni Sa Re, Ga TivraMa Re Sa'
+    },
+    'Khamaj': {
+        'aroha': 'Sa Ga Ma Pa Dha Ni Sa',
+        'abroha': 'S KomalNi Dha Pa Ma Ga Re Sa',
+        'pakad': 'Ga Ma Pa Dha KomalNi Dha Ma Pa Dha Ma Ga'
     }
 }
 
@@ -53,24 +63,28 @@ def compare_sequences(input_sequence, raga_sequences):
     return match_results
 
 def calculate_match_percentage(input_sequence, sequences):
-    input_set = set(input_sequence.split())
-    aroha_set = set(sequences['aroha'].split())
-    abroha_set = set(sequences['abroha'].split())
-    pakad_set = set(sequences['pakad'].replace(',', '').split())
+    input_notes = input_sequence.split()
 
-    common_aroha = len(input_set.intersection(aroha_set))
-    common_abroha = len(input_set.intersection(abroha_set))
-    common_pakad = len(input_set.intersection(pakad_set))
 
-    total_elements = len(input_set)
+    match_percentages = []
 
-    # Calculate percentage match for each aspect (aroha, abroha, pakad)
-    aroha_percentage = common_aroha / total_elements * 100
-    abroha_percentage = common_abroha / total_elements * 100
-    pakad_percentage = common_pakad / total_elements * 100
+    for aspect, sequence in sequences.items():
+        sequence_notes = sequence.split()
+        common_notes = []
 
-    # Take the average of the three percentages
-    average_percentage = (aroha_percentage + abroha_percentage + pakad_percentage) / 3
+        # Check if each note in the sequence is present in the input in the correct order
+        i, j = 0, 0
+        while i < len(input_notes) and j < len(sequence_notes):
+            if input_notes[i] == sequence_notes[j]:
+                common_notes.append(input_notes[i])
+                j += 1
+            i += 1
+
+        aspect_percentage = len(common_notes) / len(sequence_notes) * 100
+        match_percentages.append(aspect_percentage)
+
+    # Take the average of the match percentages for all aspects
+    average_percentage = sum(match_percentages) / len(match_percentages)
 
     return round(average_percentage, 2)
 
@@ -82,16 +96,15 @@ def index():
 def process_sequence():
     data = request.get_json()
     input_sequence = data.get('sequence', '')
-
-    # Assign numbers to surs
+  
     numbered_sequence = ' '.join(str(surs_numbers[sur]) for sur in input_sequence.split())
 
     print('Received sequence from frontend:', numbered_sequence)
 
-    # Compare input sequence with raga sequences
     match_results = compare_sequences(input_sequence, raga_sequences)
 
     return jsonify({'numbered_sequence': numbered_sequence, 'match_results': match_results})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
