@@ -28,6 +28,11 @@ raga_sequences = {
         'abroha': 'Sa Dha Pa Ga Re Sa',
         'pakad': 'Ga Re Pa Ga Sa Re Pa Ga'
     },
+    'Bhimpalasi': {
+        'aroha': 'KomalNi Sa KomalGa Ma Pa KomalNi Sa',
+        'abroha': 'Sa KomalNi Dha Pa Ma KomalGa Re Sa',
+        'pakad': 'KomalNi Sa Ma Ma Pa KomalGa Ma KomalGa Re Sa'
+    },
     'Kafi': {
         'aroha': 'Sa Re KomalGa Ma Pa Dha KomalNi Sa',
         'abroha': 'Sa KomalNi Dha Pa Ma KomalGa Re Sa',
