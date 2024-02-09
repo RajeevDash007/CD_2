@@ -19,6 +19,8 @@ body {
 
   h4{
     font-weight: 400;
+    margin-bottom: -20px;
+    margin-top: 30px;
   }
   
   .container {
@@ -92,6 +94,7 @@ body {
     border-radius: 30px;
     color: white;
     line-height: 30px;
+    margin-top: 30px;
   }
 
   #match-results-box p:nth-child(1){
