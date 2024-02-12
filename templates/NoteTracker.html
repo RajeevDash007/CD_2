@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tracker.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/tone@14.8.0/build/Tone.min.js"></script>
 </head>
 <body>
@@ -11,5 +12,6 @@
     <button id="play">Play</button>
     <button id="pause">Pause</button>
     <button id="stop">Stop</button>
+    <script src="{{ url_for('static', filename='tracker.js') }}"></script>
 </body>
 </html>
