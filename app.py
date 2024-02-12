@@ -97,6 +97,11 @@ def calculate_match_percentage(input_sequence, sequences):
 def index():
     return render_template('index.html')
 
+@app.route("/notetracker")
+def NoteTracker():
+    return render_template('NoteTracker.html')
+ 
+
 @app.route('/process_sequence', methods=['POST'])
 def process_sequence():
     data = request.get_json()
