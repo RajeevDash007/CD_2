@@ -101,3 +101,11 @@ function playNote() {
   }, 500);
 }
 
+function play() {
+  if (!isPlaying) {
+    isPlaying = true;
+    Tone.start();
+    playNote();
+  }
+}
+
