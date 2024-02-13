@@ -113,3 +113,10 @@ function pause() {
   isPlaying = false;
 }
 
+function stop() {
+  isPlaying = false;
+  currentNoteIndex = 0;
+  document
+    .querySelectorAll(".note")
+    .forEach((noteElement) => noteElement.classList.remove("active")); // Clear all highlights
+}
