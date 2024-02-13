@@ -109,3 +109,7 @@ function play() {
   }
 }
 
+function pause() {
+  isPlaying = false;
+}
+
