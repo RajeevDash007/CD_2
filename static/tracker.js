@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   originalSequence.forEach((note) => {
     const noteElement = document.createElement("div");
     noteElement.classList.add("note");
-    noteElement.textContent = note; // Set text to "Sa", "Re", "Ma", etc.
+    noteElement.textContent = note; 
     notesContainer.appendChild(noteElement);
   });
 
