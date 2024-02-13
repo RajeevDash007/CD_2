@@ -10,9 +10,15 @@
 <body>
     <h1>Note Tracker</h1>
     <div id="notes-container"></div>
-    <button id="play">Play</button>
-    <button id="pause">Pause</button>
-    <button id="stop">Stop</button>
+
+    <div class="controlBtn">
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <button id="stop">Stop</button>
+    </div>
+    <div class="VolumeContainer">
+    <label for="volumeControl" style="color: white;">Volume:  </label>
+    <input type="range" id="volumeControl" name="volume" min="-60" max="0" value="0">   
     <script src="{{ url_for('static', filename='tracker.js') }}"></script>
 </body>
 </html>

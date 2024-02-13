@@ -28,7 +28,7 @@ const sequence = [
 ].map((note) => noteMap[note]);
 let currentNoteIndex = 0;
 let isPlaying = false;
-
+const volumeNode = new Tone.Volume(0).toDestination();
 const sampler = new Tone.Sampler({
   urls: {
     C4: "C4.mp3",
@@ -42,7 +42,12 @@ const sampler = new Tone.Sampler({
   },
   release: 1,
   baseUrl: "https://fuhton.com/piano-mp3/piano-mp3/",
-}).toDestination();
+}).connect(volumeNode);
+
+document.getElementById('volumeControl').addEventListener('input', function(e) {
+  const volumeValue = e.target.value;
+  volumeNode.volume.value = volumeValue;
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const notesContainer = document.getElementById("notes-container");
