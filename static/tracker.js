@@ -73,3 +73,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("stop").addEventListener("click", stop);
 });
 
+function playNote() {
+  if (currentNoteIndex >= sequence.length) {
+    stop();
+    return;
+  }
+
+  if (!isPlaying) {
+    return;
+  }
+
+  const note = sequence[currentNoteIndex];
+  sampler.triggerAttackRelease(note, "0.5s");
+
+  // Highlight the current note
+  document.querySelectorAll(".note").forEach((el, i) => {
+    el.classList.toggle("active", i === currentNoteIndex);
+  });
+
+  currentNoteIndex++;
+
+  // Schedule the next note
+  setTimeout(() => {
+    if (isPlaying) {
+      playNote();
+    }
+  }, 500);
+}
+
