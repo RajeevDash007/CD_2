@@ -43,3 +43,33 @@ const sampler = new Tone.Sampler({
   baseUrl: "https://fuhton.com/piano-mp3/piano-mp3/",
 }).toDestination();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const notesContainer = document.getElementById("notes-container");
+  const originalSequence = [
+    "Sa",
+    "Sa",
+    "Re",
+    "Sa",
+    "Ma",
+    "Pa",
+    "Sa",
+    "Sa",
+    "Re",
+    "Sa",
+    "Pa",
+    "Ma",
+    "Sa",
+    "Sa",
+  ];
+  originalSequence.forEach((note) => {
+    const noteElement = document.createElement("div");
+    noteElement.classList.add("note");
+    noteElement.textContent = note; // Set text to "Sa", "Re", "Ma", etc.
+    notesContainer.appendChild(noteElement);
+  });
+
+  document.getElementById("play").addEventListener("click", play);
+  document.getElementById("pause").addEventListener("click", pause);
+  document.getElementById("stop").addEventListener("click", stop);
+});
+
