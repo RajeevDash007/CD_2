@@ -9,3 +9,19 @@ const noteMap = {
   "Sa.": "C5",
 };
 
+const sequence = [
+  "Sa",
+  "Sa",
+  "Re",
+  "Sa",
+  "Ma",
+  "Pa",
+  "Sa",
+  "Sa",
+  "Re",
+  "Sa",
+  "Pa",
+  "Ma",
+  "Sa",
+  "Sa",
+].map((note) => noteMap[note]);
