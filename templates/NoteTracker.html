@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='tracker.css') }}">
+    <link rel="stylesheet" href="../static/tracker.css">
     <script src="https://cdn.jsdelivr.net/npm/tone@14.8.0/build/Tone.min.js"></script>
 </head>
 <body>
@@ -20,5 +21,6 @@
     <label for="volumeControl" style="color: white;">Volume:  </label>
     <input type="range" id="volumeControl" name="volume" min="-60" max="0" value="0">   
     <script src="{{ url_for('static', filename='tracker.js') }}"></script>
+    <script src="../static/tracker.js"></script>
 </body>
 </html>
