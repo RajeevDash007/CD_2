@@ -15,7 +15,7 @@ const sequence = [
   "Re",
   "Sa",
   "Ma",
-  "Pa",
+  "Ga",
   "Sa",
   "Sa",
   "Re",
@@ -24,6 +24,7 @@ const sequence = [
   "Ma",
   "Sa",
   "Sa",
+  "Sa.",
 ].map((note) => noteMap[note]);
 let currentNoteIndex = 0;
 let isPlaying = false;
@@ -47,19 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const notesContainer = document.getElementById("notes-container");
   const originalSequence = [
     "Sa",
-    "Sa",
-    "Re",
-    "Sa",
-    "Ma",
-    "Pa",
-    "Sa",
-    "Sa",
-    "Re",
-    "Sa",
-    "Pa",
-    "Ma",
-    "Sa",
-    "Sa",
+  "Sa",
+  "Re",
+  "Sa",
+  "Ma",
+  "Ga",
+  "Sa",
+  "Sa",
+  "Re",
+  "Sa",
+  "Pa",
+  "Ma",
+  "Sa",
+  "Sa",
+  "Sa.",
   ];
   originalSequence.forEach((note) => {
     const noteElement = document.createElement("div");
@@ -118,5 +120,5 @@ function stop() {
   currentNoteIndex = 0;
   document
     .querySelectorAll(".note")
-    .forEach((noteElement) => noteElement.classList.remove("active")); // Clear all highlights
+    .forEach((noteElement) => noteElement.classList.remove("active")); 
 }
