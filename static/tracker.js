@@ -9,14 +9,14 @@ WebMidi.enable(function (err) {
 
 function init() {
   const noteMap = {
-    Sa: "C4",
-    Re: "D4",
-    Ga: "E4",
-    Ma: "F4",
-    Pa: "G4",
-    Dha: "A4",
-    Ni: "B4",
-    "Sa.": "C5",
+    s: "C4",
+    r: "D4",
+    g: "E4",
+    m: "F4",
+    p: "G4",
+    d: "A4",
+    n: "B4",
+    su: "C5",
   };
   
   const synth = new Tone.Synth().toDestination();
@@ -24,33 +24,48 @@ function init() {
   synth.connect(volumeNode);
   
   const midiToNoteMap = {
-    60: "Sa", // C4
-    62: "Re", // D4
-    64: "Ga", // E4
-    65: "Ma", // F4
-    67: "Pa", // G4
-    69: "Dha", // A4
-    71: "Ni", // B4
-    72: "Sa.", // C5
+    60: "s", // C4
+    62: "r", // D4
+    64: "g", // E4
+    65: "m", // F4
+    67: "p", // G4
+    69: "d", // A4
+    71: "n", // B4
+    72: "su", // C5
     // Add more mappings as needed
   };
   
   const sequence = [
-    "Sa",
-    "Sa",
-    "Re",
-    "Sa",
-    "Ma",
-    "Ga",
-    "Sa",
-    "Sa",
-    "Re",
-    "Sa",
-    "Pa",
-    "Ma",
-    "Sa",
-    "Sa",
-    "Sa.",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "r",
+    "g",
+    "r",
+    "p",
+    "g",
+    "d",
+    "p",
+    "g",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "r",
+    "g",
+    "r",
+    "p",
+    "g",
+    "d",
+    "p",
+    "g",
   ].map((note) => noteMap[note]);
   
   let currentNoteIndex = 0;
@@ -71,28 +86,43 @@ function init() {
   
   const notesContainer = document.getElementById("notes-container");
   const originalSequence = [
-    "Sa",
-    "Sa",
-    "Re",
-    "Sa",
-    "Ma",
-    "Ga",
-    "Sa",
-    "Sa",
-    "Re",
-    "Sa",
-    "Pa",
-    "Ma",
-    "Sa",
-    "Sa",
-    "Sa.",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "r",
+    "g",
+    "r",
+    "p",
+    "g",
+    "d",
+    "p",
+    "g",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "r",
+    "g",
+    "r",
+    "p",
+    "g",
+    "d",
+    "p",
+    "g",
   ];
   originalSequence.forEach((note) => {
     const noteElement = document.createElement("div");
     noteElement.classList.add("note");
     noteElement.textContent = note;
     notesContainer.appendChild(noteElement);
-  });
+});
   
   document.getElementById("play").addEventListener("click", play);
   document.getElementById("pause").addEventListener("click", pause);
@@ -115,28 +145,28 @@ function init() {
   
   function playNote() {
     if (currentNoteIndex >= sequence.length) {
-      stop();
-      return;
+        stop();
+        return;
     }
-  
+
     if (!isPlaying) {
-      return;
+        return;
     }
-  
+
     const note = sequence[currentNoteIndex];
     synth.triggerAttackRelease(note, "0.5s");
-  
+
     document.querySelectorAll(".note").forEach((el, i) => {
-      el.classList.toggle("active", i === currentNoteIndex);
+        el.classList.toggle("active", i === currentNoteIndex);
     });
     currentNoteIndex++;
-  
+
     setTimeout(() => {
-      if (isPlaying) {
-        playNote();
-      }
+        if (isPlaying) {
+            playNote();
+        }
     }, 500);
-  }
+}
   
   function play() {
     if (!isPlaying) {
