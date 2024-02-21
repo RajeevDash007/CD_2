@@ -20,30 +20,34 @@ body{
 .VolumeContainer{
     display: flex;
 }
+#notes-container{
+  background-color: antiquewhite;
+  height: auto;
+  width: 41vw;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
 .note {
-    display: inline-block;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid white;
-    color: white;
-    font-size: 20px;
+  display: inline-block;
+  margin: 5px;
+  font-family: 'ome_bhatkhande_hindi';
+  font-size: 40px;
+  color: rgb(48, 47, 47);
 }
 
-.active {
-    box-shadow: 0 0 0 1px #31c300 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #5eb924, 0 8px 8px 1px rgba(0,0,0,0.5);
-    background-color: #78d739;
-    border: none;
+.note.active {
+  color: green;
 }
 
 h1{
     font-size: 50px;
-    margin-top: 100px;
-    margin-bottom: -300px;
+    margin-top: 80px;
+    margin-bottom: -150px;
     color: yellow;
 }
 
 #notes-container{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-top: 200px;
 }
 
