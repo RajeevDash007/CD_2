@@ -51,6 +51,7 @@ function init() {
     "d",
     "p",
     "g",
+    "g",
     "su",
     "su",
     "d",
@@ -65,6 +66,7 @@ function init() {
     "g",
     "d",
     "p",
+    "g",
     "g",
   ].map((note) => noteMap[note]);
   
@@ -101,6 +103,7 @@ function init() {
     "d",
     "p",
     "g",
+    "-",
     "su",
     "su",
     "d",
@@ -116,6 +119,7 @@ function init() {
     "d",
     "p",
     "g",
+    "-",
   ];
   originalSequence.forEach((note) => {
     const noteElement = document.createElement("div");
