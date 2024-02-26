@@ -115,3 +115,48 @@ button:active {
   border-width: 4px 0 0;
   background: none;
 }
+body {
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(60deg, #e3d4bf 0%, #b8a89e 100%); /* Updated background color */
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+}
+
+#notes-container {
+  background-color: #f8f4e6; 
+  height: auto;
+  max-width: 1000px; 
+  margin: 50px auto; 
+  border-radius: 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr); 
+  gap: 10px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-family: 'ome_bhatkhande_hindi';
+  font-size: 24px;
+  color: rgb(48, 47, 47);
+}
+
+.note.active {
+  color: green;
+}
+
+h1 {
+  font-size: 50px;
+  margin-top: 80px;
+  margin-bottom: 20px; 
+  color: #6d4c41; 
+}
+.note:nth-child(4n) {
+  border-right: 1px dotted #6d4c41; /* Adjust the color as needed */
+}
