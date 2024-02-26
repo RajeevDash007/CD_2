@@ -52,6 +52,7 @@ function init() {
     "p",
     "g",
     "g",
+    "-",
     "su",
     "su",
     "d",
@@ -68,6 +69,7 @@ function init() {
     "p",
     "g",
     "g",
+    "-",
   ].map((note) => noteMap[note]);
   
   let currentNoteIndex = 0;
