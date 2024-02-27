@@ -17,6 +17,8 @@ function init() {
     d: "A4",
     n: "B4",
     su: "C5",
+    ru: "D5",
+    gu: "E5",
   };
   
   const synth = new Tone.Synth().toDestination();
@@ -32,6 +34,8 @@ function init() {
     69: "d", // A4
     71: "n", // B4
     72: "su", // C5
+    74: "ru", // D5
+    76: "gu", // D5
     // Add more mappings as needed
   };
   
@@ -52,7 +56,6 @@ function init() {
     "p",
     "g",
     "g",
-    "-",
     "su",
     "su",
     "d",
@@ -69,7 +72,102 @@ function init() {
     "p",
     "g",
     "g",
-    "-",
+    "g",
+    "p",
+    "d",
+    "su",
+    "ru",
+    "su",
+    "d",
+    "p",
+    "su",
+    "p",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "s",
+    "g",
+    "p",
+    "d",
+    "su",
+    "ru",
+    "su",
+    "d",
+    "p",
+    "su",
+    "p",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "s",
+    "g",
+    "g",
+    "p",
+    "d",
+    "p",
+    "su",
+    "su",
+    "su",
+    "d",
+    "d",
+    "su",
+    "ru",
+    "gu",
+    "ru",
+    "su",
+    "d",
+    "g",
+    "g",
+    "p",
+    "d",
+    "p",
+    "su",
+    "su",
+    "su",
+    "d",
+    "d",
+    "su",
+    "ru",
+    "gu",
+    "ru",
+    "su",
+    "d",
+    "gu",
+    "gu",
+    "ru",
+    "su",
+    "ru",
+    "ru",
+    "su",
+    "d",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "s",
+    "gu",
+    "gu",
+    "ru",
+    "su",
+    "ru",
+    "ru",
+    "su",
+    "d",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "s",
   ].map((note) => noteMap[note]);
   
   let currentNoteIndex = 0;
@@ -83,10 +181,6 @@ function init() {
     console.log('No MIDI devices available.');
   }
   
-  document.getElementById('volumeControl').addEventListener('input', function (e) {
-    const volumeValue = e.target.value;
-    volumeNode.volume.value = volumeValue;
-  });
   
   const notesContainer = document.getElementById("notes-container");
   const originalSequence = [
@@ -121,6 +215,102 @@ function init() {
     "d",
     "p",
     "g",
+    "-",
+    "g",
+    "p",
+    "d",
+    "su",
+    "ru",
+    "su",
+    "d",
+    "p",
+    "su",
+    "p",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "-",
+    "g",
+    "p",
+    "d",
+    "su",
+    "ru",
+    "su",
+    "d",
+    "p",
+    "su",
+    "p",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "-",
+    "g",
+    "g",
+    "p",
+    "d",
+    "p",
+    "su",
+    "-",
+    "su",
+    "d",
+    "d",
+    "su",
+    "ru",
+    "gu",
+    "ru",
+    "su",
+    "d",
+    "g",
+    "g",
+    "p",
+    "d",
+    "p",
+    "su",
+    "-",
+    "su",
+    "d",
+    "d",
+    "su",
+    "ru",
+    "gu",
+    "ru",
+    "su",
+    "d",
+    "gu",
+    "gu",
+    "ru",
+    "su",
+    "ru",
+    "ru",
+    "su",
+    "d",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
+    "-",
+    "gu",
+    "gu",
+    "ru",
+    "su",
+    "ru",
+    "ru",
+    "su",
+    "d",
+    "su",
+    "su",
+    "d",
+    "p",
+    "g",
+    "r",
+    "s",
     "-",
   ];
   originalSequence.forEach((note) => {
@@ -167,11 +357,19 @@ function init() {
     });
     currentNoteIndex++;
 
+    if (currentNoteIndex % 16 === 0) {
+        scrollPage(200); // Scroll the page by 50px after every 8 notes
+    }
+
     setTimeout(() => {
         if (isPlaying) {
             playNote();
         }
     }, 500);
+}
+
+function scrollPage(scrollAmount) {
+    window.scrollBy(0, scrollAmount);
 }
   
   function play() {
