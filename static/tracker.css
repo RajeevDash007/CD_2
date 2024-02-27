@@ -126,15 +126,15 @@ body {
 }
 
 #notes-container {
-  background-color: #f8f4e6; 
-  height: auto;
-  max-width: 1000px; 
-  margin: 50px auto; 
-  border-radius: 20px;
-  padding: 20px;
+  background-color: #f8f4e6; /* Old book page color */
+  width: 80vw;
+  padding: 50px; /* Add a little margin */
   display: grid;
-  grid-template-columns: repeat(16, 1fr); 
-  gap: 10px;
+  grid-template-columns: repeat(16, 1fr); /* 16 columns */
+  gap: 10px; 
+
+  margin: 10px;
+  
 }
 
 .note {
@@ -143,13 +143,15 @@ body {
   justify-content: center;
   height: 60px;
   font-family: 'ome_bhatkhande_hindi';
-  font-size: 24px;
+  font-size: 4vw; 
   color: rgb(48, 47, 47);
+  margin-bottom: 80px; 
 }
 
 .note.active {
   color: green;
 }
+
 
 h1 {
   font-size: 50px;
@@ -158,5 +160,6 @@ h1 {
   color: #6d4c41; 
 }
 .note:nth-child(4n) {
-  border-right: 1px dotted #6d4c41; /* Adjust the color as needed */
+  border-right: 4px dotted #6d4c41; 
+
 }
