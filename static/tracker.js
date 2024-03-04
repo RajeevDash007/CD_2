@@ -21,9 +21,21 @@ function init() {
     gu: "E5",
   };
   
-  const synth = new Tone.Synth().toDestination();
-  const volumeNode = new Tone.Volume(0).toDestination();
-  synth.connect(volumeNode);
+  const synth = new Tone.Sampler({
+    urls: {
+      C4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/C3.mp3',
+      D4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/D3.mp3',
+      E4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/E3.mp3',
+      F4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/F3.mp3',
+      G4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/G3.mp3',
+      A4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/A3.mp3',
+      B4: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/B3.mp3',
+      C5: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/C4.mp3',
+      D5: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/D4.mp3',
+      E5: 'https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/harmonium/E4.mp3',
+    },
+    release: 2,
+}).toDestination();
   
   const midiToNoteMap = {
     60: "s", // C4
