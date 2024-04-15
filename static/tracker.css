@@ -160,7 +160,7 @@ h1 {
   color: #6d4c41; 
 }
 .note:nth-child(4n) {
-  border-right: 4px dotted #6d4c41; 
+  border-right: 4px solid #6d4c41; 
 
 }
 
