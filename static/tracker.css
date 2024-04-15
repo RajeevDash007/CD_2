@@ -163,3 +163,69 @@ h1 {
   border-right: 4px dotted #6d4c41; 
 
 }
+
+.custom-file-upload {
+  border: 2px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  color: #555;
+  transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+  background-color: #e0e0e0;
+}
+
+/* Optional: If you want to use Font Awesome for the upload icon */
+.custom-file-upload i {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+  }
+  #notes-container {
+    width: 90vw;
+    padding: 20px;
+    margin: 0 auto;
+  }
+}
+
+/* Note Container Styling */
+#notes-container {
+  background-color: #f8f4e6;
+  border-radius: 10px;
+
+}
+
+/* Button Styling */
+button {
+  margin-right: 10px;
+  font-size: 16px;
+  padding: 12px 20px;
+}
+
+/* File Input Styling */
+.custom-file-upload {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 2px solid #1899d6;
+  border-radius: 5px;
+  color: #1899d6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-file-upload:hover {
+  background-color: #1899d6;
+  color: #fff;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}

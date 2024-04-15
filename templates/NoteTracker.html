@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tone@14.8.0/build/Tone.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/webmidi@latest/dist/iife/webmidi.iife.js"></script>
     <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    
 </head>
 <body>
     <h1>Note Tracker</h1>
@@ -18,15 +19,16 @@
         <button id="pause">Pause</button>
         <button id="stop">Stop</button>
     </div>
-    
+
+    <!-- Add input for XML file -->
+    <label for="xmlInput" class="custom-file-upload">
+        <i class="fas fa-cloud-upload-alt"></i> Choose XML File
+    </label>
+    <input type="file" id="xmlInput" accept=".xml" style="display: none;">
+
     <div id="notes-container" class="bhatkhande-hindi">
     </div>
-
-    <div class="VolumeContainer">
-    <label for="volumeControl" style="color: white;">Volume:  </label>
-    <input type="range" id="volumeControl" name="volume" min="-60" max="0" value="0">   
     <script src="{{ url_for('static', filename='tracker.js') }}"></script>
     <script src="../static/tracker.js"></script>
-     
 </body>
 </html>
