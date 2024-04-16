@@ -112,30 +112,39 @@ function init() {
   function parseXML(xmlText) {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-    const contentTags = xmlDoc.getElementsByTagName("CONTENT");
-    const newSequence = [];
-
-    for (let i = 0; i < contentTags.length; i++) {
-      const content = contentTags[i].childNodes[0].nodeValue;
-      const notes = content.trim().split(" ");
-      newSequence.push(...notes);
-    }
-
+    const lines = xmlDoc.getElementsByTagName("LINE");
+  
     // Clear existing notes
     notesContainer.innerHTML = "";
-
-    // Add new notes to sequence and frontend
-    newSequence.forEach((note, index) => {
-      const noteElement = document.createElement("div");
-      noteElement.classList.add("note");
-      noteElement.textContent = note;
-      noteElement.setAttribute("data-seq-index", index); // Set a data attribute for the sequence index
-      notesContainer.appendChild(noteElement);
-    });
-
-    // Update the sequence with new notes
-    sequence.length = 0;
-    sequence.push(...newSequence);
+  
+    // Create table and tbody elements
+    const table = document.createElement("table");
+    table.className = "composition bhatkhande-hindi";
+    const tbody = document.createElement("tbody");
+  
+    // Iterate over each LINE element
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const cols = line.getElementsByTagName("COL");
+      const tr = document.createElement("tr");
+  
+      // Iterate over each COL element within the current LINE
+      for (let j = 0; j < cols.length; j++) {
+        const col = cols[j];
+        const td = document.createElement("td");
+        const content = col.getElementsByTagName("CONTENT")[0].textContent;
+        const code = document.createElement("code");
+        // Use innerHTML instead of textContent
+        code.innerHTML = content.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+        td.appendChild(code);
+        tr.appendChild(td);
+      }
+  
+      tbody.appendChild(tr);
+    }
+  
+    table.appendChild(tbody);
+    notesContainer.appendChild(table);
   }
 
   function play(sequence) {

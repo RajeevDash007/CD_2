@@ -35,6 +35,8 @@ body{
   color: rgb(48, 47, 47);
 }
 
+
+
 .note.active {
   color: green;
 }
@@ -127,12 +129,10 @@ body {
 
 #notes-container {
   background-color: #f8f4e6; /* Old book page color */
-  width: 80vw;
-  padding: 50px; /* Add a little margin */
+  width: auto;
+  padding: 20px;
   display: grid;
-  grid-template-columns: repeat(16, 1fr); /* 16 columns */
   gap: 10px; 
-
   margin: 10px;
   
 }
@@ -141,9 +141,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 20px;
   font-family: 'ome_bhatkhande_hindi';
-  font-size: 2vw; 
+  font-size: 3vw; 
   color: rgb(48, 47, 47);
   margin-bottom: 80px; 
 }
@@ -228,4 +228,26 @@ button {
 
 .custom-file-upload input[type="file"] {
   display: none;
+}
+
+table.composition {
+  border: none;
+  width: 100%; /* Ensure the table spans the full width of its container */
+}
+
+table.composition td {
+  width: 20%;
+  border: none;
+  border-right: 1px solid black;
+  padding: 5px; 
+  font-size: 30px;
+}
+
+table.composition td:last-child {
+  border-right: none;
+}
+
+table.composition.bhatkhande-hindi td > code {
+  white-space: pre;
+  font-family: 'ome_bhatkhande_hindi';
 }
